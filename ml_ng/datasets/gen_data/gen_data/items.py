@@ -12,6 +12,7 @@ class IMDBIndexItem(scrapy.Item):
     url = scrapy.Field()  # item链接
     rank = scrapy.Field()  # 列表排名
     source = scrapy.Field()  # 列表来源
+    status = scrapy.Field()
     created_at = scrapy.Field()  # 创建该条数据时间
 
 
@@ -20,6 +21,8 @@ class IMDBDetailItem(scrapy.Item):
     # pf_rd_p=e31d89dd-322d-4646-8962-327b42fe94b1&pf_rd_r=MTH5T2P1YQ4YF62JT0A6&
     # pf_rd_s=center-1&pf_rd_t=15506&pf_rd_i=top&ref_=chttp_tt_12
     # from index
+    rank = scrapy.Field()
+    source = scrapy.Field()
     mid = scrapy.Field()
     title = scrapy.Field()
     full_title = scrapy.Field()
@@ -34,6 +37,7 @@ class IMDBDetailItem(scrapy.Item):
     rating = scrapy.Field()
     rating_users = scrapy.Field()
     folder = scrapy.Field()
+    video_url = scrapy.Field()
     director = scrapy.Field()
     writer = scrapy.Field()
     stars = scrapy.Field()
@@ -45,16 +49,20 @@ class IMDBDetailItem(scrapy.Item):
     sound_mix = scrapy.Field()
     color = scrapy.Field()
     aspect_ratio = scrapy.Field()  # 宽高比
+    created_at = scrapy.Field()
 
 
-class IMDBUserItem(scrapy.Item):
+class IMDBReviewItem(scrapy.Item):
     # url: https://www.imdb.com/title/tt0109830/reviews/_ajax?ref_=undefined&paginationKey={key}
     # key from Load More element
+    rwid = scrapy.Field()  # 评论id
     uid = scrapy.Field()
     mid = scrapy.Field()
-    name = scrapy.Field()
+    uname = scrapy.Field()
     is_spoilers = scrapy.Field()
     review_title = scrapy.Field()
     review_body = scrapy.Field()
+    review_url = scrapy.Field()
     rating = scrapy.Field()
-    created_at = scrapy.Field()
+    released_at = scrapy.Field()  # 评论发布时间
+    created_at = scrapy.Field()  # item创建时间
