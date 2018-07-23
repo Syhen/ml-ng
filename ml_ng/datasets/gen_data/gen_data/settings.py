@@ -12,4 +12,12 @@ CONCURRENT_REQUESTS = 32
 # COOKIES_ENABLED = False
 
 ITEM_PIPELINES = {
+    'gen_data.pipelines.IMDBIndexPipeline': 300,
+    'gen_data.pipelines.IMDBDetailPipeline': 310,
+    'gen_data.pipelines.IMDBReviewPipeline': 320,
 }
+
+# mongodb
+MONGO_URI = 'mongodb://localhost:27017'
+MONGO_DB_NAME = 'coursera_ml_ng'
+MONGO_AUTH = {}
